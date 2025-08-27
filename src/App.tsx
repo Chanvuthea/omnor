@@ -45,7 +45,6 @@ const App: React.FC = () => {
           },
         });
         setCoupleData(response?.data?.data[0]);
-        console.log(response?.data?.data[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
