@@ -9,9 +9,10 @@ import FloatingButton from "./components/FloatingButton";
 import ThankyouContent from "./components/thankyouContent";
 import AudioPlayer from "./components/AudioPlayer";
 
-const URL = import.meta.env.VITE_API_URL;
-const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
-const token = import.meta.env.VITE_TOKEN;
+const URL = "https://natural-authority-5239a4daaf.strapiapp.com";
+const IMAGE_URL = "";
+const token =
+  "4793ceb4ca171cf7df6e65f6758a857014825e29217b4fd7c09c45323a304901fbd92025a87c66731d0b98e71807db790e3775737ee0ab678e3517431dd4e76030948f3a6acfd258f64b21a267dd1219207811693859530d6fe3c1eb1457e0177f02a3cbfa68d61cf9aac3118e232bcf02da6bf1f590c8d860fbf8ba0171d9db";
 const App: React.FC = () => {
   const splitURL = window.location.href.split("?");
   const coupleID = splitURL[splitURL.length - 1];
