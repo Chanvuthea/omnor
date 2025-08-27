@@ -9,10 +9,18 @@ import FloatingButton from "./components/FloatingButton";
 import ThankyouContent from "./components/thankyouContent";
 import AudioPlayer from "./components/AudioPlayer";
 
-const URL = "https://natural-authority-5239a4daaf.strapiapp.com";
-const IMAGE_URL = "";
+//Prod
+// const URL = "https://natural-authority-5239a4daaf.strapiapp.com";
+// const IMAGE_URL = "";
+// const token =
+//   "4793ceb4ca171cf7df6e65f6758a857014825e29217b4fd7c09c45323a304901fbd92025a87c66731d0b98e71807db790e3775737ee0ab678e3517431dd4e76030948f3a6acfd258f64b21a267dd1219207811693859530d6fe3c1eb1457e0177f02a3cbfa68d61cf9aac3118e232bcf02da6bf1f590c8d860fbf8ba0171d9db";
+
+//dev
+const URL = "http://localhost:1337";
+const IMAGE_URL = "http://localhost:1337";
 const token =
-  "4793ceb4ca171cf7df6e65f6758a857014825e29217b4fd7c09c45323a304901fbd92025a87c66731d0b98e71807db790e3775737ee0ab678e3517431dd4e76030948f3a6acfd258f64b21a267dd1219207811693859530d6fe3c1eb1457e0177f02a3cbfa68d61cf9aac3118e232bcf02da6bf1f590c8d860fbf8ba0171d9db";
+  "7afabdced5d1c42be3097419fe6d2be9a13065247710714fd3c934141dd67c8eb8f76af4a79493a270352a2ae22382cabf7429ad9ed87c0db4bdeeb4eb15e5b96f8fb0ed9c3e18b3f8eb3860e3e84201e47439c041ba7932b24aa0f36c1e6d6f04d83d7f7c6866107ecc78b58c531d93c97c98d55e91eeeacc4916e80596b288";
+
 const App: React.FC = () => {
   const splitURL = window.location.href.split("?");
   const coupleID = splitURL[splitURL.length - 1];
@@ -75,7 +83,7 @@ const App: React.FC = () => {
         snap-mandatory`}
     >
       <Butterfly3D count={30} baseWidth={25} />
-      <div className="section h-screen w-screen snap-start flex justify-center">
+      <div className="section h-screen w-screen snap-center flex justify-center">
         <TitleOfGate
           groomName={coupleData?.list_family_name?.groom}
           brideName={coupleData?.list_family_name?.bride}
@@ -84,14 +92,14 @@ const App: React.FC = () => {
           date={coupleData?.date}
         />
       </div>
-      <div className="section w-screen snap-start flex justify-start relative">
+      <div className="section w-screen snap-center flex justify-start relative">
         <Content
           list_family_name={coupleData?.list_family_name}
           content_invitation={coupleData?.content_invitation}
           content_location={coupleData?.content_location}
         />
       </div>
-      <div className="section w-screen snap-start flex justify-start relative">
+      <div className="section w-screen snap-center flex justify-start relative">
         <AgendaContent
           agendaList={coupleData?.content_agenda?.agendaList}
           date={coupleData?.content_agenda?.date}
@@ -99,13 +107,13 @@ const App: React.FC = () => {
           location={coupleData?.content_agenda?.location}
         />
       </div>
-      <div className="section w-screen snap-start flex justify-start relative">
+      <div className="section w-screen snap-center flex justify-start relative ">
         <ImageSection
           imageList={photoBoothUrls}
           videoId={coupleData?.youtube_id}
         />
       </div>
-      <div className="section w-screen snap-start flex justify-start relative">
+      <div className="section w-screen snap-center flex justify-start relative">
         <ThankyouContent data={coupleData?.content_thnakyou} />
       </div>
       <FloatingButton sections={sections} />
