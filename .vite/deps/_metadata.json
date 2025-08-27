@@ -1,0 +1,55 @@
+{
+  "hash": "30ce647d",
+  "configHash": "b247bc26",
+  "lockfileHash": "e583982b",
+  "browserHash": "603d335a",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "e8bf5b01",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "a479de5d",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "2c649b2f",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "5851a3f0",
+      "needsInterop": false
+    },
+    "@react-spring/web": {
+      "src": "../../node_modules/@react-spring/web/dist/react-spring_web.modern.mjs",
+      "file": "@react-spring_web.js",
+      "fileHash": "bd615223",
+      "needsInterop": false
+    },
+    "react-youtube": {
+      "src": "../../node_modules/react-youtube/dist/YouTube.esm.js",
+      "file": "react-youtube.js",
+      "fileHash": "70070150",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-FYGYNQUM": {
+      "file": "chunk-FYGYNQUM.js"
+    },
+    "chunk-32EALFBN": {
+      "file": "chunk-32EALFBN.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}
