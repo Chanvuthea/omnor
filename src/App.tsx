@@ -13,7 +13,7 @@ import AudioPlayer from "./components/AudioPlayer";
 const URL = "https://natural-authority-5239a4daaf.strapiapp.com";
 const IMAGE_URL = "";
 const token =
-  "4793ceb4ca171cf7df6e65f6758a857014825e29217b4fd7c09c45323a304901fbd92025a87c66731d0b98e71807db790e3775737ee0ab678e3517431dd4e76030948f3a6acfd258f64b21a267dd1219207811693859530d6fe3c1eb1457e0177f02a3cbfa68d61cf9aac3118e232bcf02da6bf1f590c8d860fbf8ba0171d9db";
+  "0318c3bb98b67bc1e71edbb8f84d3a054775711d69009a2a9e38755dcf6f096d46b08e59d8778d1dc310cb0523c1d5eb7a632bd32e727eef38607865c1c0d21c521fcc6e6ebeaa074e6ad92a41a4f56a297fbd17dbe41c31742abcccd4409d2a0e9c20941d5f9520b789b37e2a6952efcf545eb6dd9d662a368a5a27bf595e0d";
 
 //dev
 // const URL = "http://localhost:1337";
@@ -25,6 +25,7 @@ const App: React.FC = () => {
   const splitURL = window.location.href.split("?");
   const coupleID = splitURL[splitURL.length - 1];
 
+  const [enableSnap, setEnableSnap] = useState(false);
   const [coupleData, setCoupleData] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const sections: string[] = [
@@ -37,13 +38,14 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchAgendaData = async () => {
-      const endpoint = `${URL}/api/somnehrs?filters[couple_id][$eq]=${coupleID}&populate=*`;
+      const endpoint = `${URL}/api/somnehrs?filters[couple_id][$eq]=${coupleID}&populate[background][fields][0]=url&populate[floral_button_background][fields][0]=url&populate[fong_logo][fields][0]=url&populate[photo_booth][fields][0]=url&populate[background_sound][fields][0]=url`;
       try {
         const response = await axios.get(endpoint, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log(response);
         setCoupleData(response?.data?.data[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -52,6 +54,19 @@ const App: React.FC = () => {
       }
     };
     fetchAgendaData();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setEnableSnap(false);
+      } else {
+        setEnableSnap(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Calculate photoBoothUrls outside the JSX
@@ -78,11 +93,11 @@ const App: React.FC = () => {
         h-screen
         w-screen
         overflow-y-scroll
-        snap-y
-        snap-mandatory`}
+        ${enableSnap ? "snap-y snap-mandatory" : "snap-none"}
+        `}
     >
       <Butterfly3D count={30} baseWidth={25} />
-      <div className="section h-screen w-screen snap-center flex justify-center">
+      <div className="section snap-start h-screen w-screen flex justify-center ">
         <TitleOfGate
           groomName={coupleData?.list_family_name?.groom}
           brideName={coupleData?.list_family_name?.bride}
@@ -91,14 +106,14 @@ const App: React.FC = () => {
           date={coupleData?.date}
         />
       </div>
-      <div className="section w-screen snap-center flex justify-start relative">
+      <div className="section w-screen snap-start flex justify-start relative">
         <Content
           list_family_name={coupleData?.list_family_name}
           content_invitation={coupleData?.content_invitation}
           content_location={coupleData?.content_location}
         />
       </div>
-      <div className="section w-screen snap-center flex justify-start relative">
+      <div className="section w-screen snap-start flex justify-start relative">
         <AgendaContent
           agendaList={coupleData?.content_agenda?.agendaList}
           date={coupleData?.content_agenda?.date}
@@ -106,13 +121,13 @@ const App: React.FC = () => {
           location={coupleData?.content_agenda?.location}
         />
       </div>
-      <div className="section w-screen snap-center flex justify-start relative ">
+      <div className="section w-screen snap-start flex justify-start relative ">
         <ImageSection
           imageList={photoBoothUrls}
           videoId={coupleData?.youtube_id}
         />
       </div>
-      <div className="section w-screen snap-center flex justify-start relative">
+      <div className="section w-screen snap-start flex justify-start relative">
         <ThankyouContent data={coupleData?.content_thnakyou} />
       </div>
       <FloatingButton sections={sections} />
