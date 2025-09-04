@@ -10,10 +10,9 @@ import ThankyouContent from "./components/thankyouContent";
 import AudioPlayer from "./components/AudioPlayer";
 
 //Prod
-const URL = "https://natural-authority-5239a4daaf.strapiapp.com";
-const IMAGE_URL = "";
-const token =
-  "0318c3bb98b67bc1e71edbb8f84d3a054775711d69009a2a9e38755dcf6f096d46b08e59d8778d1dc310cb0523c1d5eb7a632bd32e727eef38607865c1c0d21c521fcc6e6ebeaa074e6ad92a41a4f56a297fbd17dbe41c31742abcccd4409d2a0e9c20941d5f9520b789b37e2a6952efcf545eb6dd9d662a368a5a27bf595e0d";
+const URL = import.meta.env.VITE_API_URL;
+const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
+const token = import.meta.env.VITE_TOKEN;
 
 //dev
 // const URL = "http://localhost:1337";
@@ -38,14 +37,26 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchAgendaData = async () => {
-      const endpoint = `${URL}/api/somnehrs?filters[couple_id][$eq]=${coupleID}&populate[background][fields][0]=url&populate[floral_button_background][fields][0]=url&populate[fong_logo][fields][0]=url&populate[photo_booth][fields][0]=url&populate[background_sound][fields][0]=url`;
+      const baseEndpoint = `${URL}/api/somnehrs?filters[couple_id][$eq]=${coupleID}`;
+      const populateFields = [
+        "background",
+        "floral_button_background",
+        "fong_logo",
+        "photo_booth",
+        "background_sound",
+      ];
+
+      let populateQuery = populateFields
+        .map((field) => `populate[${field}][fields]=url`)
+        .join("&");
+      const endpoint = `${baseEndpoint}&${populateQuery}`;
+
       try {
         const response = await axios.get(endpoint, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(response);
         setCoupleData(response?.data?.data[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -93,10 +104,10 @@ const App: React.FC = () => {
         h-screen
         w-screen
         overflow-y-scroll
-        ${enableSnap ? "snap-y snap-mandatory" : "snap-none"}
+        ${enableSnap ? "snap-mandatory" : "snap-none"}
         `}
     >
-      <Butterfly3D count={30} baseWidth={25} />
+      <Butterfly3D count={50} baseWidth={30} />
       <div className="section snap-start h-screen w-screen flex justify-center ">
         <TitleOfGate
           groomName={coupleData?.list_family_name?.groom}
@@ -127,7 +138,7 @@ const App: React.FC = () => {
           videoId={coupleData?.youtube_id}
         />
       </div>
-      <div className="section w-screen snap-start flex justify-start relative">
+      <div className="section w-screen snap-start flex justify-start relative pb-60">
         <ThankyouContent data={coupleData?.content_thnakyou} />
       </div>
       <FloatingButton sections={sections} />

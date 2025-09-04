@@ -1,15 +1,16 @@
+export interface ButterflyFieldProps {
+  count?: number;
+  baseWidth?: number;
+}
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { useSprings, animated, easings, to } from "@react-spring/web";
 import BUTTERFLY_SRC from "../assets/butterFly.png";
 import BUTTERFLY_PINK from "../assets/pinkButterfly.png";
 
+// Helper to generate random values within a range
 const rnd = (min: number, max: number) => Math.random() * (max - min) + min;
 
-export interface ButterflyFieldProps {
-  count?: number;
-  baseWidth?: number;
-}
-
+// Hook to get viewport size and update on resize
 const useViewport = () => {
   const [size, setSize] = useState({ width: 1280, height: 720 });
   useLayoutEffect(() => {
@@ -23,10 +24,10 @@ const useViewport = () => {
 };
 
 export default function ButterflyField({
-  count = 30,
-  baseWidth = 120,
+  count = 30, // Number of butterflies
+  baseWidth = 120, // Base width of each butterfly
 }: ButterflyFieldProps) {
-  const { width, height } = useViewport();
+  const { width, height } = useViewport(); // Get viewport size
   const prefersReduced = useMemo(
     () =>
       typeof window !== "undefined" && window.matchMedia
@@ -35,6 +36,7 @@ export default function ButterflyField({
     []
   );
 
+  // Define spring values for butterflies' movement
   const [springs, api] = useSprings(count, () => ({
     progress: 0,
     offsetX: -200,
@@ -49,6 +51,7 @@ export default function ButterflyField({
     config: { duration: 12000, easing: easings.linear },
   }));
 
+  // Animation loop setup
   useEffect(() => {
     if (prefersReduced) return;
     api.start(() => {
@@ -87,7 +90,7 @@ export default function ButterflyField({
   }, [api, width, height, prefersReduced]);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none ">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none">
       {springs.map((spring, i) => {
         const style = {
           position: "absolute" as const,
@@ -118,8 +121,11 @@ export default function ButterflyField({
             }
           ),
         } as const;
+
+        // Randomize the butterfly images (normal or pink)
         const butterflySrc =
           Math.random() > 0.5 ? BUTTERFLY_SRC : BUTTERFLY_PINK;
+
         return (
           <animated.img
             key={i}

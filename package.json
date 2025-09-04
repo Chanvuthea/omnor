@@ -19,6 +19,7 @@
     "@types/react-youtube": "^7.6.2",
     "@use-gesture/react": "^10.3.1",
     "axios": "^1.11.0",
+    "dotenv": "^17.2.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.1",

@@ -23,19 +23,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
     }
   };
 
-  const handleEnded = () => {
-    if (audioRef.current) {
-      setIsPlaying(false);
-      audioRef.current.play();
-      setAction("play");
-    } else {
-      setAction("play");
-    }
-  };
-
   return (
     <div className="fixed right-18 bottom-0 -translate-y-1/2 z-50">
-      <audio ref={audioRef} src={src} onEnded={handleEnded} />
+      <audio ref={audioRef} src={src} loop />
+
       <button
         onClick={handleButtonClick}
         className=" p-3 md:p-4 w-12 h-12 md:w-auto md:h-auto flex items-center justify-center bg-[#e7e3d8] border-amber-100 rounded-full shadow-lg hover:bg-amber-600 text-sm md:text-base transition-all duration-100 ease-in-out
