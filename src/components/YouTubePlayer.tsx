@@ -23,7 +23,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
   };
 
   return (
-    <div>
+    <div className="rounded-lg overflow-hidden">
       <YouTube videoId={videoId} opts={opts} onReady={onReady} />
     </div>
   );

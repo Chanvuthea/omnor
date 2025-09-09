@@ -18,7 +18,7 @@ const token = import.meta.env.VITE_TOKEN;
 // const URL = "http://localhost:1337";
 // const IMAGE_URL = "http://localhost:1337";
 // const token =
-//   "7afabdced5d1c42be3097419fe6d2be9a13065247710714fd3c934141dd67c8eb8f76af4a79493a270352a2ae22382cabf7429ad9ed87c0db4bdeeb4eb15e5b96f8fb0ed9c3e18b3f8eb3860e3e84201e47439c041ba7932b24aa0f36c1e6d6f04d83d7f7c6866107ecc78b58c531d93c97c98d55e91eeeacc4916e80596b288";
+//   "93270bddc549cfbcdf6e9daec5ce5434481ddca1e2c488b885d7fa079d7faed496bb073ce468428c2a57a77f347860700fdeeb58e225a35f294fe5de9b79cba9e45a4f159a4644a475568bbfdc675897911efa0316ca2300e35c72f32ba58a872548ac9cde8ca171098d1d6668fb489729a468e77c38d1a2ac8623dcc882c21a";
 
 const App: React.FC = () => {
   const splitURL = window.location.href.split("?");
@@ -37,7 +37,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchAgendaData = async () => {
-      const baseEndpoint = `${URL}/api/somnehrs?filters[couple_id][$eq]=${coupleID}`;
+      const baseEndpoint = `${URL}/api/couples?filters[couple_id][$eq]=${coupleID}`;
       const populateFields = [
         "background",
         "floral_button_background",
@@ -107,7 +107,7 @@ const App: React.FC = () => {
         ${enableSnap ? "snap-mandatory" : "snap-none"}
         `}
     >
-      <Butterfly3D count={50} baseWidth={30} />
+      <Butterfly3D count={30} baseWidth={30} />
       <div className="section snap-start h-screen w-screen flex justify-center ">
         <TitleOfGate
           groomName={coupleData?.list_family_name?.groom}

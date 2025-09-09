@@ -36,7 +36,7 @@ function clampIndex(idx: number, len: number) {
 
 export const Slideshow: React.FC<SlideshowProps> = ({
   slides,
-  width = window.innerWidth < 720 ? "100%" : window.innerWidth / 2 - 24,
+  width = window.innerWidth < 720 ? "100%" : window.innerWidth / 3 - 48,
   height = window.innerWidth < 720 ? 470 : window.innerHeight - 160,
   autoplay = true,
   interval = 10000,
@@ -229,7 +229,7 @@ const SlideView: React.FC<{ slide?: Slide }> = ({ slide }) => {
         <img
           src={slide.image}
           alt={slide.title ?? "Slide image"}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-center"
           draggable={false}
         />
       ) : null}
