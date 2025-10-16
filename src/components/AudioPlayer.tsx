@@ -1,13 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface AudioPlayerProps {
   src: string;
+  isPlay?: boolean;
 }
 
-const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
+const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, isPlay }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [_, setIsPlaying] = useState(false);
   const [action, setAction] = useState<"play" | "pause">("play");
+
+  useEffect(() => {
+    if (isPlay) {
+      handleButtonClick();
+    }
+  }, [isPlay]);
 
   const handleButtonClick = () => {
     if (!audioRef.current) return;
@@ -24,7 +31,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   };
 
   return (
-    <div className="fixed right-18 bottom-0 -translate-y-1/2 z-50">
+    <div className="fixed right-4 bottom-0 -translate-y-1/2 z-50">
       <audio ref={audioRef} src={src} loop />
 
       <button

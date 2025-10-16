@@ -52,7 +52,7 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({ sections }) => {
   };
 
   return (
-    <div className="fixed right-4 bottom-0 -translate-y-1/2 z-50">
+    <div className="fixed right-18 bottom-0 -translate-y-1/2 z-50">
       <button
         style={textShadowStyle}
         onClick={() =>

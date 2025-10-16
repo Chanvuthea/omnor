@@ -1,9 +1,9 @@
-interface AgendaItem {
+interface GoldAgendaItem {
   time: string;
   detail: string;
 }
-interface AgendaContentProps {
-  agendaList: AgendaItem[];
+interface GoldAgendaContentProps {
+  agendaList: GoldAgendaItem[];
   date: string;
   khmer_date: string;
   event_location: { name: string; lat: number; lng: number };
@@ -11,28 +11,21 @@ interface AgendaContentProps {
   fong_logo: string;
 }
 
-export default function AgendaContent({
+export default function GoldAgendaContent({
   agendaList,
   date,
   khmer_date,
   event_location,
   restaurant_location,
   fong_logo,
-}: AgendaContentProps) {
-  const textShadowStyle = {
-    textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)",
-  };
-
+}: GoldAgendaContentProps) {
   const showInMapClicked = (lat: number, lng: number) => {
     window.open("https://maps.google.com?q=" + lat + "," + lng);
   };
 
   return (
-    <div
-      className="m-6 w-full flex justify-center md:pt-20 md:pb-[20%] "
-      style={textShadowStyle}
-    >
-      <div className="p-6 pt-0 py-14 border border-amber-100 bg-black/30 w-full md:w-1/2">
+    <div className=" w-full flex justify-center md:pt-20 md:pb-[20%] ">
+      <div className="p-6 pt-0 py-14 bg-white/80 w-full md:w-1/2">
         <div className="flex justify-center items-center">
           <img
             src={fong_logo}

@@ -1,4 +1,4 @@
-interface ContentProps {
+interface GoldContentProps {
   list_family_name: {
     groom_father: string;
     groom_mother: string;
@@ -12,42 +12,22 @@ interface ContentProps {
   fong_logo: string;
 }
 
-export default function Content({
+export default function GoldContent({
   list_family_name,
   content_invitation,
   content_location,
   fong_logo,
-}: ContentProps) {
-  const textShadowStyle = {
-    textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)",
-  };
+}: GoldContentProps) {
   return (
-    <div
-      className="m-6 w-full flex justify-center md:pt-20"
-      style={textShadowStyle}
-    >
-      <div className="px-6 py-10 border border-amber-100 bg-black/30 w-full md:w-1/2">
-        <div className="flex justify-center items-center">
-          <p className="text-2xl font-bold">សិរីសួស្តីអាពាហ៍ពិពាហ៍មង្គល</p>
-        </div>
-        <div className="flex justify-between pt-6 pb-6 text-base font-bold ">
-          <div>
-            <p>{`លោក ${list_family_name.groom_father}`}</p>
-            <p>{`លោកស្រី ${list_family_name.groom_mother}`}</p>
-          </div>
-          <div>
-            <p>{`លោក ${list_family_name.bride_father}`}</p>
-            <p>{`លោកស្រី ${list_family_name.bride_mother}`}</p>
-          </div>
-        </div>
+    <div className="w-screen flex justify-center px-6 pt-10">
+      <div className="border-amber-100 w-full md:w-2/4 border flex flex-col justify-center p-10 py-20 bg-white/80 rounded-full ">
         <div className="flex justify-center items-center w-full ">
-          <p className="text-2xl font-bold">សូមគោរពអញ្ជើញ</p>
+          <p className="text-xl font-bold">សូមគោរពអញ្ជើញ</p>
         </div>
         <div className="flex w-full pt-2 justify-center">
           <p className="text-base text-center">{content_invitation}</p>
         </div>
-
-        <div className="flex justify-between items-start text-base w-full font-bold">
+        <div className="flex justify-between items-start text-sm w-full font-bold">
           <div className="flex-1 flex flex-col justify-start text-center pt-6">
             <p>កូនប្រុសនាម</p>
             <p>{list_family_name.groom}</p>

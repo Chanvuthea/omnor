@@ -36,12 +36,17 @@ export default function TitleOfGate({
 
   return (
     <animated.div style={{ opacity }}>
-      <div className="text-4xl pt-20">
+      <div
+        className="text-4xl pt-20"
+        style={{ fontFamily: "'Moulpali', 'Arial', sans-serif" }}
+      >
         <animated.div style={floatingAnimation}>
           <div className="flex flex-col justify-center items-center">
             <p
-              className="text-4xl font-bold"
-              style={{ textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)" }}
+              className="text-2xl font-bold"
+              style={{
+                textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)",
+              }}
             >
               សិរីមង្គលអាពាហ៍ពិពាហ៍
             </p>
@@ -55,19 +60,19 @@ export default function TitleOfGate({
             />
             <div className="flex justify-between w-full max-w-xs mt-4">
               <p
-                className="text-2xl font-bold"
+                className="text-lg font-bold"
                 style={{ textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)" }}
               >
                 {groomName}
               </p>
               <p
-                className="text-2xl font-bold -mt-4"
+                className="text-lg font-bold -mt-4"
                 style={{ textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)" }}
               >
                 ជាគូ
               </p>
               <p
-                className="text-2xl font-bold"
+                className="text-lg font-bold"
                 style={{ textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)" }}
               >
                 {brideName}

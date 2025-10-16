@@ -36,8 +36,12 @@ function clampIndex(idx: number, len: number) {
 
 export const Slideshow: React.FC<SlideshowProps> = ({
   slides,
-  width = window.innerWidth < 720 ? "100%" : window.innerWidth / 3 - 48,
-  height = window.innerWidth < 720 ? 470 : window.innerHeight - 160,
+  width = window.innerWidth < 720 ? "100%" : window.innerWidth / 2 - 48,
+  height = window.innerWidth < 720
+    ? 470
+    : window.innerWidth < 1100
+      ? window.innerHeight / 2 - 160
+      : window.innerHeight - 160,
   autoplay = true,
   interval = 10000,
   loop = true,
