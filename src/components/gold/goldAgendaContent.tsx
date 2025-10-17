@@ -25,7 +25,7 @@ export default function GoldAgendaContent({
 
   return (
     <div className=" w-full flex justify-center md:pt-20 md:pb-[20%] ">
-      <div className="p-6 pt-0 py-14 bg-white/80 w-full md:w-1/2">
+      <div className="p-6 pt-0 py-14 bg-white/80 w-full">
         <div className="flex justify-center items-center">
           <img
             src={fong_logo}

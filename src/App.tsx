@@ -63,7 +63,6 @@ const App: React.FC = () => {
     switch (coupleData?.list_family_name?.type) {
       case "basic":
         return <BasicScreen coupleData={coupleData} IMAGE_URL={IMAGE_URL} />;
-
       case "gold":
         return <GoldScreen coupleData={coupleData} IMAGE_URL={IMAGE_URL} />;
       default:

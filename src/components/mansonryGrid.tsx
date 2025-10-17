@@ -8,7 +8,7 @@ interface MasonryProps {
   maxItemHeight?: number;
 }
 
-const maxItemHeight = innerHeight < 720 ? 280 : 480;
+const maxItemHeight = 480;
 
 function Masonry({
   children,
@@ -50,7 +50,7 @@ function useRandomItems(count: number): Item[] {
     () =>
       Array.from({ length: count }).map((_, i) => ({
         id: i + 1,
-        h: Math.floor(Math.random() * (maxItemHeight - 180 + 1)) + 180, // Random height between 180 and 280
+        h: maxItemHeight,
       })),
     [count]
   );
@@ -60,10 +60,10 @@ export default function MasonryTwoColumnDemo({ photoBoothUrls }: any) {
 
   return (
     <Masonry
-      columnCount={2}
+      columnCount={1}
       gap={16}
-      maxItemHeight={maxItemHeight}
-      className={"md:w-1/2 w-full"}
+      // maxItemHeight={maxItemHeight}
+      className={"md:w-[400px] w-full"}
     >
       {items.map((item) => (
         <div
