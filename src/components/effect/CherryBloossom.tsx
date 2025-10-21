@@ -12,7 +12,7 @@ interface PetalProps {
 }
 
 const Petal: React.FC<PetalProps> = ({ delay, duration, left, size }) => {
-  const [styles, api] = useSpring(() => ({
+  const [styles] = useSpring(() => ({
     from: {
       top: `-100%`,
       left: `${left}%`,
