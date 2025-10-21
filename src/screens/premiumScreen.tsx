@@ -87,8 +87,6 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
     config: { tension: 120, friction: 14, duration: 1000 },
   });
 
-  console.log(coupleData?.list_family_name);
-
   const onOpen = () => {
     setIsAnimating(!isAnimating);
     setTimeout(() => {
@@ -101,7 +99,10 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
   };
 
   return (
-    <div className="relative w-full h-screen font-normal overflow-x-hidden">
+    <div
+      className="relative w-full h-screen font-normal overflow-x-hidden"
+      style={{ overflow: isOpen ? "auto" : "hidden" }}
+    >
       {!isFinish && (
         <div
           style={{ display: "flex", width: widthBox }}
@@ -125,7 +126,6 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
             style={{
               width: `${widthBox / 2}%`,
               height: "100%",
-
               border: "2px solid #000",
               transformStyle: "preserve-3d",
               backgroundImage: `url(${coupleData?.list_family_name?.right_door})`,
