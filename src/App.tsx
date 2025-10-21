@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import BasicScreen from "./screens/basicScreen";
 import GoldScreen from "./screens/goldScreen";
 import axios from "axios";
+import PremiumScreen from "./screens/premiumScreen";
 
 //Prod
 const URL = import.meta.env.VITE_API_URL;
@@ -65,6 +66,8 @@ const App: React.FC = () => {
         return <BasicScreen coupleData={coupleData} IMAGE_URL={IMAGE_URL} />;
       case "gold":
         return <GoldScreen coupleData={coupleData} IMAGE_URL={IMAGE_URL} />;
+      case "premium":
+        return <PremiumScreen coupleData={coupleData} IMAGE_URL={IMAGE_URL} />;
       default:
         return Loading();
     }

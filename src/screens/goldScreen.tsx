@@ -6,6 +6,7 @@ import AudioPlayer from "../components/AudioPlayer";
 import GoldContent from "../components/gold/goldContent";
 import GoldAgendaContent from "../components/gold/goldAgendaContent";
 import GoldThankyouContent from "../components/gold/goldThankyouContent";
+import CherryBloossom from "../components/effect/CherryBloossom";
 
 interface GoldScreenProps {
   coupleData: any;
@@ -81,6 +82,7 @@ const GoldScreen: React.FC<GoldScreenProps> = ({ coupleData, IMAGE_URL }) => {
         </animated.div>
         <div className=" absolute z-0">
           <Butterfly3D count={30} baseWidth={30} />
+          <CherryBloossom />
         </div>
         <div
           className="overflow-auto h-screen absolute snap-y snap-mandatory"
@@ -128,7 +130,7 @@ const GoldScreen: React.FC<GoldScreenProps> = ({ coupleData, IMAGE_URL }) => {
             </animated.div>
           </div>
           <div className="w-screen bg-white/30  font-normal" id="section2">
-            <div className="w-screen justify-center  flex flex-col">
+            <div className="w-screen justify-center flex flex-col">
               <GoldContent
                 list_family_name={coupleData?.list_family_name}
                 content_invitation={coupleData?.content_invitation}

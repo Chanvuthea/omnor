@@ -8,6 +8,7 @@ import TitleOfGate from "../components/titleOfGate";
 import FloatingButton from "../components/FloatingButton";
 import ThankyouContent from "../components/thankyouContent";
 import AudioPlayer from "../components/AudioPlayer";
+import CherryBlossom from "../components/effect/CherryBloossom";
 
 interface BasicScreenProps {
   coupleData: any;
@@ -66,6 +67,7 @@ const BasicScreen: React.FC<BasicScreenProps> = ({ coupleData, IMAGE_URL }) => {
         `}
     >
       <Butterfly3D count={30} baseWidth={30} />
+      <CherryBlossom />
       <div className="section snap-start h-screen w-screen flex justify-center ">
         <TitleOfGate
           groomName={coupleData?.list_family_name?.groom}
