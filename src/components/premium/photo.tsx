@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence, number } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 // import "../../assets/Photo.css";
 
 // import img1 from "../assets/images/pic1.jpg";

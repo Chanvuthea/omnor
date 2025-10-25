@@ -3,14 +3,9 @@ import React, { useState } from "react";
 import ButterflyField from "../components/butterflyAnimation";
 
 import CherryBlossom from "../components/effect/CherryBloossom";
-import GoldContent from "../components/gold/goldContent";
-import GoldAgendaContent from "../components/gold/goldAgendaContent";
-import ImageSection from "../components/imageSection";
-import GoldThankyouContent from "../components/gold/goldThankyouContent";
+
 import AudioPlayer from "../components/AudioPlayer";
 import PremiumContent from "../components/premium/premiumCotentent";
-import Photo from "../components/premium/photo";
-import { AnimatePresence } from "framer-motion";
 
 interface PremiumScreenProps {
   coupleData?: any;
@@ -29,7 +24,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isFinish, setisFinish] = useState(false);
-  const [openImage, setOpenImage] = useState(false);
+  const [_, setOpenImage] = useState(false);
 
   const widthBox = window.innerWidth;
   const getScale = () => {
