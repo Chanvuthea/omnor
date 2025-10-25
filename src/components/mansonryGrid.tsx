@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { motion } from "framer-motion";
 
 interface MasonryProps {
   children: React.ReactNode;
@@ -66,18 +67,25 @@ export default function MasonryTwoColumnDemo({ photoBoothUrls }: any) {
       className={"md:w-[400px] w-full"}
     >
       {items.map((item) => (
-        <div
-          key={item.id}
-          style={{ height: item.h } as React.CSSProperties}
-          className="bg-amber-50/50 w-full rounded-xl ring-1 ring-black/5"
-          aria-label={`Random-height block ${item.id}`}
+        <motion.div
+          className="photo-wrapper full"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <img
-            src={photoBoothUrls[item.id - 1]?.image}
-            alt={""}
-            className="h-full w-full object-cover rounded-xl"
-          />
-        </div>
+          <div
+            key={item.id}
+            style={{ height: item.h } as React.CSSProperties}
+            className="bg-amber-50/50 w-full rounded-xl ring-1 ring-black/5"
+            aria-label={`Random-height block ${item.id}`}
+          >
+            <img
+              src={photoBoothUrls[item.id - 1]?.image}
+              alt={""}
+              className="h-full w-full object-cover rounded-xl"
+            />
+          </div>
+        </motion.div>
       ))}
     </Masonry>
   );

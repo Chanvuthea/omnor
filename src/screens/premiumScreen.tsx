@@ -8,6 +8,9 @@ import GoldAgendaContent from "../components/gold/goldAgendaContent";
 import ImageSection from "../components/imageSection";
 import GoldThankyouContent from "../components/gold/goldThankyouContent";
 import AudioPlayer from "../components/AudioPlayer";
+import PremiumContent from "../components/premium/premiumCotentent";
+import Photo from "../components/premium/photo";
+import { AnimatePresence } from "framer-motion";
 
 interface PremiumScreenProps {
   coupleData?: any;
@@ -69,12 +72,6 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
       easing: (t) => t * (2 - t),
     },
   });
-
-  const photoBoothUrls =
-    coupleData?.photo_booth?.map((item: any, index: number) => ({
-      id: index,
-      image: `${IMAGE_URL}${item.url}`,
-    })) || [];
 
   const bgMountainLayer = useSpring({
     ...getScale(),
@@ -169,71 +166,31 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
       )}
 
       <div className="w-screen absolute snap-y snap-mandatory overflow-y-auto z-0 overflow-x-hidden">
-        <div className=" absolute z-0">
-          <ButterflyField count={30} baseWidth={30} />
-          <CherryBlossom />
-        </div>
-
-        <div className="w-screen flex snap-start" id="section1">
-          <animated.div style={bgMountainLayer} className="w-screen h-screen">
-            <div className="absolute w-screen pt-40">
-              <p
-                style={{
-                  fontFamily: "'Moulpali', 'Arial', sans-serif",
-                  textShadow: "3px 3px 6px rgba(0, 0, 0, 0.9)",
-                }}
-                className="text-3xl md:text-5xl text-center text-amber-100"
-              >
-                ១១.១១.២០២៥
-              </p>
-            </div>
+        <animated.div
+          style={bgMountainLayer}
+          className="w-screen h-screen relative overflow-hidden "
+        >
+          <div className="absolute z-0 w-full h-full">
             <img
               src={`${coupleData?.list_family_name?.background}`}
-              className="w-screen h-screen object-cover"
-            ></img>
-          </animated.div>
-        </div>
-        <div
-          className="w-screen flex flex-col bg-contain"
-          id="section2"
-          style={{
-            backgroundImage: `url(${coupleData?.list_family_name?.frame_flower})`,
-            backgroundRepeat: "repeat-y",
-          }}
-        >
-          <div className="w-screen flex flex-col justify-center pt-10 z-10 text-green-950">
-            <GoldContent
-              list_family_name={coupleData?.list_family_name}
-              content_invitation={coupleData?.content_invitation}
-              content_location={coupleData?.content_location}
-              fong_logo={`${IMAGE_URL}${coupleData?.fong_logo?.url}`}
+              className="w-full h-full object-cover"
+              alt="Background"
             />
-            <div className="w-screen flex justify-center pt-30">
-              <GoldAgendaContent
-                agendaList={coupleData?.content_agenda?.agendaList}
-                date={coupleData?.content_agenda?.date}
-                khmer_date={coupleData?.content_agenda?.khmer_date}
-                event_location={coupleData?.content_agenda?.event_location}
-                restaurant_location={
-                  coupleData?.content_agenda?.restaurant_location
-                }
-                fong_logo={`${IMAGE_URL}${coupleData?.fong_logo?.url}`}
+          </div>
+          <div className=" absolute z-0">
+            <ButterflyField count={30} baseWidth={30} />
+            <CherryBlossom />
+          </div>
+
+          <div className="absolute z-10 w-full overflow-y-auto ">
+            <div className="bg-white/70 w-scrren h-screen">
+              <PremiumContent
+                data={{ coupleData: coupleData, IMAGE_URL: IMAGE_URL }}
               />
             </div>
-
-            <div className="w-screen flex justify-center ">
-              {photoBoothUrls.length > 0 && openImage && (
-                <ImageSection
-                  imageList={photoBoothUrls}
-                  videoId={coupleData?.youtube_id}
-                />
-              )}
-            </div>
-            <div className="w-screen flex justify-center pb-20">
-              <GoldThankyouContent data={coupleData?.content_thnakyou} />
-            </div>
           </div>
-        </div>
+        </animated.div>
+
         <AudioPlayer
           src={`${IMAGE_URL}${coupleData?.background_sound?.url}`}
           isPlay={isOpen}
