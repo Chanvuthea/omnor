@@ -160,37 +160,39 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
         </div>
       )}
 
-      <div className="w-screen absolute snap-y snap-mandatory overflow-y-auto z-0 overflow-x-hidden">
-        <animated.div
-          style={bgMountainLayer}
-          className="w-screen h-screen relative overflow-hidden "
-        >
-          <div className="absolute z-0 w-full h-full">
-            <img
-              src={`${coupleData?.list_family_name?.background}`}
-              className="w-full h-full object-cover"
-              alt="Background"
-            />
-          </div>
-          <div className=" absolute z-0">
-            <ButterflyField count={30} baseWidth={30} />
-            <CherryBlossom />
-          </div>
-
-          <div className="absolute z-10 w-full overflow-y-auto ">
-            <div className="bg-white/70 w-scrren h-screen">
-              <PremiumContent
-                data={{ coupleData: coupleData, IMAGE_URL: IMAGE_URL }}
+      {isOpen && (
+        <div className="w-screen absolute snap-y snap-mandatory overflow-y-auto z-0 overflow-x-hidden">
+          <animated.div
+            style={bgMountainLayer}
+            className="w-screen h-screen relative overflow-hidden "
+          >
+            <div className="absolute z-0 w-full h-full">
+              <img
+                src={`${coupleData?.list_family_name?.background}`}
+                className="w-full h-full object-cover"
+                alt="Background"
               />
             </div>
-          </div>
-        </animated.div>
+            <div className=" absolute z-0">
+              <ButterflyField count={30} baseWidth={30} />
+              <CherryBlossom />
+            </div>
 
-        <AudioPlayer
-          src={`${IMAGE_URL}${coupleData?.background_sound?.url}`}
-          isPlay={isOpen}
-        />
-      </div>
+            <div className="absolute z-10 w-full overflow-y-auto ">
+              <div className="bg-white/70 w-scrren h-screen">
+                <PremiumContent
+                  data={{ coupleData: coupleData, IMAGE_URL: IMAGE_URL }}
+                />
+              </div>
+            </div>
+          </animated.div>
+
+          <AudioPlayer
+            src={`${IMAGE_URL}${coupleData?.background_sound?.url}`}
+            isPlay={isOpen}
+          />
+        </div>
+      )}
     </div>
   );
 };
