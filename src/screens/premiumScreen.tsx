@@ -87,15 +87,37 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
     setTimeout(() => {
       setisFinish(!isFinish);
       setOpenImage(true);
-    }, 2000);
+    }, 2500);
+  };
+
+  const [loaded, setLoaded] = useState(false);
+  const [loadedRight, setLoadedRight] = useState(false);
+
+  const handleLoad = () => {
+    setLoaded(true);
+  };
+  const handleLoadRight = () => {
+    setLoadedRight(true);
   };
 
   return (
     <div
       className="relative w-full h-screen font-normal overflow-x-hidden"
-      style={{ overflow: isOpen ? "auto" : "hidden" }}
+      style={{ overflow: isOpen ? "auto" : "auto" }}
     >
-      {!isFinish && (
+      <img
+        src={`${coupleData?.list_family_name?.left_door}`}
+        alt=""
+        onLoad={handleLoad}
+        style={{ display: "none" }}
+      />
+      <img
+        src={`${coupleData?.list_family_name?.right_door}`}
+        alt=""
+        onLoad={handleLoadRight}
+        style={{ display: "none" }}
+      />
+      {loaded && loadedRight && (
         <div
           style={{ display: "flex", width: widthBox }}
           className="h-screen absolute z-20"
@@ -124,6 +146,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
+              filter: loaded ? "none" : "blur(20px)",
               ...rightHalfAnimation,
             }}
           />
@@ -136,6 +159,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
             <img
               src={`${IMAGE_URL}${coupleData?.floral_button_background?.url}`}
               className=" w-2/4 md:w-2/6 h-full object-cover"
+              loading="lazy"
             ></img>
             <p className=" text-center text-base md:text-2xl text-amber-100 absolute top-1/2 -mt-4">
               បើកធៀប
@@ -143,7 +167,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
           </animated.div>
           <animated.div
             className={
-              " absolute justify-center flex w-screen flex-col top-3/6 "
+              " absolute justify-center flex w-screen flex-col top-2/6 pt-26"
             }
             style={{ ...logo, fontFamily: "'Moulpali', 'Arial', sans-serif" }}
           >
@@ -160,7 +184,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
         </div>
       )}
 
-      {isAnimating && (
+      {loaded && loadedRight && (
         <div className="w-screen absolute snap-y snap-mandatory overflow-y-auto z-0 overflow-x-hidden">
           <animated.div
             style={bgMountainLayer}
@@ -171,6 +195,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
                 src={`${coupleData?.list_family_name?.background}`}
                 className="w-full h-full object-cover"
                 alt="Background"
+                loading="lazy"
               />
             </div>
             <div className=" absolute z-0">
@@ -186,7 +211,6 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
               </div>
             </div>
           </animated.div>
-
           <AudioPlayer
             src={`${IMAGE_URL}${coupleData?.background_sound?.url}`}
             isPlay={isOpen}

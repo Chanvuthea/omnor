@@ -1,39 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../../assets/Main.css";
-
 import ImageSection from "../imageSection";
 import GoldThankyouContent from "../gold/goldThankyouContent";
-// import LeafFall from './Leaf';
-// import Logo from './Logo';
-// import Wish from './Wish';
-// import Photo from './Photo';
 
-// ✅ Day 1 Timeline (08 Nov 2025)
-// const timelineDay1 = [
-//   { time: "ម៉ោង​ ៣ ៖ ០០ ​រសៀល", detail: "ពិធីក្រុងពាលី" },
-//   { time: "ម៉ោង​ ៤ ៖ ០០ ​រសៀល", detail: "ពិធីសូត្រមន្តចម្រើនព្រះបរិត្ត" },
-//   { time: "ម៉ោង ៥ ៖ ០០ ល្ងាច", detail: "អញ្ជើញភ្ញៀវកិត្តិយសពិសាអាហារពេលល្ងាច" },
-// ];
-
-// ✅ Day 2 Timeline (09 Nov 2025)
-// const timelineDay2 = [
-//   { time: "ម៉ោង​ ៦ ៖ ៣០ ព្រឹក", detail: "ជូបជ៉ំភ្ញៀវកិត្តិយសរៀបចំពិធីហែជំនូន" },
-//   { time: "ម៉ោង​ ៧ ៖ ០០ ព្រឹក", detail: "ពិធីហែជំនូន ចូលរោងជ័យ" },
-//   {
-//     time: "ម៉ោង​ ៧ ៖ ៣០ ព្រឹក",
-//     detail: "អញ្ជើញភ្ញៀវកិត្តិយសពិសាអាហារពេលព្រឹក",
-//   },
-//   { time: "ម៉ោង ៨ ៖ ០០ ព្រឹក", detail: "ពិធីពិសាស្លាដកកន្សែង (រៀបរាប់ផ្លែឈើ)" },
-//   { time: "ម៉ោង​ ៩ ៖ ០០ ​ព្រឹក", detail: "ពិធីជាវខាន់ស្លា" },
-//   { time: "ម៉ោង​ ១០ ៖ ៣០ ​ព្រឹក", detail: "ពិធីកាត់សក់បង្កក់សិរី" },
-//   {
-//     time: "ម៉ោង​ ១១ ៖ ៤៥ ព្រឹក",
-//     detail: "អញ្ជើញភ្ញៀវកិត្តិយសពិសាអាហារពេលថ្ងៃត្រង់",
-//   },
-// ];
-
-// ✅ Page Entry Animation
 const pageVariants: any = {
   hidden: { opacity: 0, scale: 0.95 },
   visible: {
@@ -68,7 +38,7 @@ const PremiumContent = (data: any) => {
   const coupleData = data.data.coupleData;
   const timelineDay1 = coupleData.content_agenda.agendaList.first_day;
   const timelineDay2 = coupleData.content_agenda.agendaList.second_day;
-  console.log(timelineDay2);
+
   const photoBoothUrls =
     coupleData?.photo_booth?.map((item: any, index: number) => ({
       id: index,
@@ -89,7 +59,6 @@ const PremiumContent = (data: any) => {
         variants={pageVariants}
       >
         {/* <LeafFall /> */}
-
         {/* Header */}
         <motion.div
           variants={scrollFadeIn}
@@ -284,7 +253,12 @@ const PremiumContent = (data: any) => {
             បើកផែនទី 🗺
           </a>
         </motion.div>
-        <ImageSection imageList={photoBoothUrls} videoId={"Mn_qLC7_ueA"} />
+        <div
+          className="text-[#a88e61]"
+          style={{ fontFamily: "'Angkor', 'Arial', sans-serif" }}
+        >
+          <ImageSection imageList={photoBoothUrls} videoId={"Mn_qLC7_ueA"} />
+        </div>
         <motion.div
           variants={scrollFadeIn}
           initial="hidden"
@@ -292,14 +266,13 @@ const PremiumContent = (data: any) => {
           viewport={{ once: false, amount: 0.3 }}
           className="bt"
         >
-          <div className=" p-6 pb-40">
+          <div
+            className=" p-6 pb-40 text-[#a88e61] "
+            style={{ fontFamily: "'Angkor', 'Arial', sans-serif" }}
+          >
             <GoldThankyouContent data={coupleData?.content_thnakyou} />
           </div>
         </motion.div>
-        {/* <Photo photolist={photolist?.photolist} /> */}
-        {/*<Wish/>
-        <Logo />
-        <LeafFall /> */}
       </motion.div>
     </AnimatePresence>
   );
