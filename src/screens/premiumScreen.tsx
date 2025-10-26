@@ -160,7 +160,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
         </div>
       )}
 
-      {isOpen && (
+      {isAnimating && (
         <div className="w-screen absolute snap-y snap-mandatory overflow-y-auto z-0 overflow-x-hidden">
           <animated.div
             style={bgMountainLayer}
