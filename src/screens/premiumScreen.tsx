@@ -24,7 +24,6 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isFinish, setisFinish] = useState(false);
-  const [_, setOpenImage] = useState(false);
 
   const widthBox = window.innerWidth;
   const getScale = () => {
@@ -84,12 +83,11 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
     setTimeout(() => {
       setIsOpen(!isOpen);
     }, 1000);
+
     setTimeout(() => {
       setisFinish(!isFinish);
-      setOpenImage(true);
     }, 2500);
   };
-
   const [loaded, setLoaded] = useState(false);
   const [loadedRight, setLoadedRight] = useState(false);
 
@@ -117,7 +115,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
         onLoad={handleLoadRight}
         style={{ display: "none" }}
       />
-      {loaded && loadedRight && (
+      {!isFinish && loaded && loadedRight && (
         <div
           style={{ display: "flex", width: widthBox }}
           className="h-screen absolute z-20"
@@ -146,7 +144,6 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              filter: loaded ? "none" : "blur(20px)",
               ...rightHalfAnimation,
             }}
           />
@@ -167,7 +164,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
           </animated.div>
           <animated.div
             className={
-              " absolute justify-center flex w-screen flex-col top-2/6 pt-26"
+              " absolute justify-center flex w-screen flex-col top-2/6 pt-20"
             }
             style={{ ...logo, fontFamily: "'Moulpali', 'Arial', sans-serif" }}
           >

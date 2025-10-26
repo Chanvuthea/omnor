@@ -253,12 +253,12 @@ const PremiumContent = (data: any) => {
             បើកផែនទី 🗺
           </a>
         </motion.div>
-        <div
+        {/* <div
           className="text-[#a88e61]"
           style={{ fontFamily: "'Angkor', 'Arial', sans-serif" }}
-        >
-          <ImageSection imageList={photoBoothUrls} videoId={"Mn_qLC7_ueA"} />
-        </div>
+        > */}
+        <ImageSection imageList={photoBoothUrls} videoId={"Mn_qLC7_ueA"} />
+        {/* </div> */}
         <motion.div
           variants={scrollFadeIn}
           initial="hidden"
