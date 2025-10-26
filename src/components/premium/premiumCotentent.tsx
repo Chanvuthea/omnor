@@ -178,7 +178,7 @@ const PremiumContent = (data: any) => {
                 {coupleData.content_agenda.date.first_day}
               </button>
             )}
-            {timelineDay2.length > 0 && (
+            {timelineDay1.length > 0 && (
               <button
                 className={`day-btn ${selectedDay === "day2" ? "active" : ""}`}
                 onClick={() => setSelectedDay("day2")}
@@ -210,7 +210,7 @@ const PremiumContent = (data: any) => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.3 }}
-              exit={{ opacity: 0, y: 30 }}
+              exit={{ opacity: 0, y: 200 }}
             >
               <h4 className="eventDetailTime">{item.time}</h4>
               <p className="eventDetail mt-3">{item.detail}</p>
@@ -257,7 +257,8 @@ const PremiumContent = (data: any) => {
           className="text-[#a88e61]"
           style={{ fontFamily: "'Angkor', 'Arial', sans-serif" }}
         > */}
-        <ImageSection imageList={photoBoothUrls} videoId={"Mn_qLC7_ueA"} />
+        <h3 className="event mt-5">វិចិត្រសាល</h3>
+        <ImageSection imageList={photoBoothUrls} videoId={""} />
         {/* </div> */}
         <motion.div
           variants={scrollFadeIn}

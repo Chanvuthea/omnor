@@ -201,7 +201,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
             </div>
 
             <div className="absolute z-10 w-full overflow-y-auto ">
-              <div className="bg-white/70 w-scrren h-screen">
+              <div className=" w-scrren h-screen ">
                 <PremiumContent
                   data={{ coupleData: coupleData, IMAGE_URL: IMAGE_URL }}
                 />

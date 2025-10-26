@@ -8,20 +8,22 @@ interface imageData {
 interface ImageSectionProps {
   imageList: imageData[];
   videoId: string;
+  showSlide?: boolean;
 }
 
 export default function ImageSection({
   imageList,
   videoId,
+  showSlide,
 }: ImageSectionProps) {
   return (
     <div className="w-full pt-6 pb-50">
-      <SlideshowDemo photoBoothUrls={imageList} />
+      {showSlide && <SlideshowDemo photoBoothUrls={imageList} />}
       <div className="p-6 justify-center items-center flex">
         <MasonryTwoColumnDemo photoBoothUrls={imageList} />
       </div>
       <div className="justify-center items-center flex">
-        <YouTubePlayer videoId={videoId} />
+        {videoId !== "" && <YouTubePlayer videoId={videoId} />}
       </div>
     </div>
   );
