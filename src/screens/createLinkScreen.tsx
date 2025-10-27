@@ -41,13 +41,13 @@ const CreateLinkScreen: React.FC<CreateLinkScreenProps> = ({ URL }) => {
         </div>
         <div className="w-full max-w-md flex flex-col items-center">
           <input
-            className="bg-white h-12 rounded-lg p-2 w-full mb-4"
+            className="bg-white h-12 rounded-lg p-2 w-full mb-4 placeholder-gray-500"
             placeholder="បញ្ចូល ID"
             value={inputCoupleId}
             onChange={(e) => setInputCoupleId(e.target.value)}
           />
           <input
-            className="bg-white h-12 rounded-lg p-2 w-full mb-4"
+            className="bg-white h-12 rounded-lg p-2 w-full mb-4 placeholder-gray-500"
             placeholder="បញ្ចូលឈ្មោះភ្ញៀវ"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
