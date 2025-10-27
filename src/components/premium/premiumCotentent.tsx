@@ -71,27 +71,35 @@ const PremiumContent = (data: any) => {
         </motion.div>
 
         {/* Parents */}
-
-        <motion.div
-          variants={scrollFadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="mom-names "
+        <div
+          className="flex justify-between p-8 px-4"
+          style={{ fontFamily: "Angkor" }}
         >
-          <h6>លោក {coupleData.list_family_name.groom_father}</h6>
-          <h6>លោក {coupleData.list_family_name.bride_father}</h6>
-        </motion.div>
-        <motion.div
-          variants={scrollFadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          className="mom-names "
-        >
-          <h6>លោកស្រី {coupleData.list_family_name.groom_mother}</h6>
-          <h6>លោកស្រី {coupleData.list_family_name.bride_mother}</h6>
-        </motion.div>
+          <motion.div
+            variants={scrollFadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            className="text-filter"
+          >
+            <h6>លោក {coupleData.list_family_name.groom_father}</h6>
+            <h6>លោក {coupleData.list_family_name.bride_father}</h6>
+          </motion.div>
+          <motion.div
+            variants={scrollFadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            className=" text-filter"
+          >
+            <h6 className=" text-right">
+              លោកស្រី {coupleData.list_family_name.groom_mother}
+            </h6>
+            <h6 className=" text-right">
+              លោកស្រី {coupleData.list_family_name.bride_mother}
+            </h6>
+          </motion.div>
+        </div>
 
         {/* Invite Text */}
         <motion.div
@@ -100,8 +108,10 @@ const PremiumContent = (data: any) => {
           whileInView="visible"
           viewport={{ once: false, amount: 0.5 }}
         >
-          <h4 className="pt-4 invite">សូមគោរពអញ្ជើញ</h4>
-          <h6 className="sub-invite pt-2">{coupleData.content_invitation}</h6>
+          <h4 className="pt-4 invite  text-filter">សូមគោរពអញ្ជើញ</h4>
+          <h6 className="sub-invite pt-2  text-filter">
+            {coupleData.content_invitation}
+          </h6>
         </motion.div>
 
         {/* Groom & Bride */}
@@ -110,7 +120,7 @@ const PremiumContent = (data: any) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
-          className="groom-bride-tittle mt-3"
+          className="groom-bride-tittle mt-3  text-filter"
         >
           <p>កូនប្រុសនាម</p>
           <p>កូនស្រីនាម</p>
@@ -120,11 +130,11 @@ const PremiumContent = (data: any) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
-          className="groom-bride-names"
+          className="groom-bride-names text-filter"
         >
           <div className="name-pair">
-            <p>{coupleData.list_family_name.groom}</p>
-            <p className="ps-3">{coupleData.list_family_name.bride}</p>
+            <p className="pt-4">{coupleData.list_family_name.groom}</p>
+            <p className="ps-3 pt-4">{coupleData.list_family_name.bride}</p>
           </div>
         </motion.div>
 
@@ -134,9 +144,9 @@ const PremiumContent = (data: any) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
-          className="dateinfo"
+          className="dateinfo text-filter "
         >
-          <h6>ដែលនឹងប្រព្រឹត្តទៅនៅ</h6>
+          <h6 className="pt-6">ដែលនឹងប្រព្រឹត្តទៅនៅ</h6>
           <h6>{coupleData.content_agenda.date.full_date}</h6>
           <h6>{coupleData.content_agenda.restaurant_location.name}</h6>
         </motion.div>
@@ -147,7 +157,7 @@ const PremiumContent = (data: any) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
-          className="bt"
+          className="bt py-10"
         >
           <a
             className="calendar-button mt-2"
@@ -166,7 +176,9 @@ const PremiumContent = (data: any) => {
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
         >
-          <h3 className="event mt-5">កម្មវិធីសិរីមង្គលអាពាហ៍ពិពាហ៍</h3>
+          <h3 className="event mt-5 text-filter ">
+            កម្មវិធីសិរីមង្គលអាពាហ៍ពិពាហ៍
+          </h3>
 
           {/* Toggle Buttons */}
           <div className="day-toggle mt-4 mb-5">
@@ -195,7 +207,7 @@ const PremiumContent = (data: any) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="dateinfo1 mb-4"
+            className="dateinfo1 mb-4 text-filter"
           >
             {selectedDay === "day1" ? "កម្មវិធីពេលរសៀល" : "កម្មវិធីពេលព្រឹក"}
           </motion.h5>
@@ -212,8 +224,8 @@ const PremiumContent = (data: any) => {
               viewport={{ once: false, amount: 0.3 }}
               exit={{ opacity: 0, y: 200 }}
             >
-              <h4 className="eventDetailTime">{item.time}</h4>
-              <p className="eventDetail mt-3">{item.detail}</p>
+              <h4 className="eventDetailTime text-filter">{item.time}</h4>
+              <p className="eventDetail mt-3 text-filter">{item.detail}</p>
             </motion.div>
           ))}
         </AnimatePresence>
@@ -228,9 +240,9 @@ const PremiumContent = (data: any) => {
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h5 className="dateinfo1 ">កម្មវិធីពេលល្ងាច </h5>
-            <h4 className="eventDetailTime">៥ ៖ ០០ ល្ងាច</h4>
-            <p className="eventDetail ">
+            <h5 className="dateinfo1 text-filter">កម្មវិធីពេលល្ងាច </h5>
+            <h4 className="eventDetailTime text-filter">៥ ៖ ០០ ល្ងាច</h4>
+            <p className="eventDetail text-filter">
               {coupleData.content_agenda.restaurant_location.name}
             </p>
           </motion.div>
@@ -242,7 +254,7 @@ const PremiumContent = (data: any) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
-          className="bt"
+          className="bt pt-8"
         >
           <a
             className="calendar-button  mb-5"
@@ -253,13 +265,10 @@ const PremiumContent = (data: any) => {
             បើកផែនទី 🗺
           </a>
         </motion.div>
-        {/* <div
-          className="text-[#a88e61]"
-          style={{ fontFamily: "'Angkor', 'Arial', sans-serif" }}
-        > */}
-        <h3 className="event mt-5">វិចិត្រសាល</h3>
+
+        <h3 className="event mt-5 text-filter">វិចិត្រសាល</h3>
         <ImageSection imageList={photoBoothUrls} videoId={""} />
-        {/* </div> */}
+
         <motion.div
           variants={scrollFadeIn}
           initial="hidden"
