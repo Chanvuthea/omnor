@@ -79,7 +79,7 @@ const PremiumContent = (data: any) => {
             variants={scrollFadeIn}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.5 }}
             className="text-filter"
           >
             <h6>លោក {coupleData.list_family_name.groom_father}</h6>
@@ -89,7 +89,7 @@ const PremiumContent = (data: any) => {
             variants={scrollFadeIn}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.6 }}
             className=" text-filter"
           >
             <h6 className=" text-right">
@@ -106,7 +106,7 @@ const PremiumContent = (data: any) => {
           variants={scrollFadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: false, amount: 0.7 }}
         >
           <h4 className="pt-4 invite  text-filter">សូមគោរពអញ្ជើញ</h4>
           <h6 className="sub-invite pt-2  text-filter">
@@ -119,17 +119,17 @@ const PremiumContent = (data: any) => {
           variants={scrollFadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.8 }}
           className="groom-bride-tittle mt-3  text-filter"
         >
           <p>កូនប្រុសនាម</p>
           <p>កូនស្រីនាម</p>
         </motion.div>
         <motion.div
-          // variants={scrollFadeIn}
+          variants={scrollFadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.8 }}
           className="groom-bride-names text-filter"
         >
           <div className="name-pair">
@@ -143,7 +143,7 @@ const PremiumContent = (data: any) => {
           variants={scrollFadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.8 }}
           className="dateinfo text-filter "
         >
           <h6 className="pt-6">ដែលនឹងប្រព្រឹត្តទៅនៅ</h6>
@@ -156,7 +156,7 @@ const PremiumContent = (data: any) => {
           variants={scrollFadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.8 }}
           className="bt py-10"
         >
           <a
@@ -174,7 +174,7 @@ const PremiumContent = (data: any) => {
           variants={scrollFadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.8 }}
         >
           <h3 className="event mt-5 text-filter ">
             កម្មវិធីសិរីមង្គលអាពាហ៍ពិពាហ៍
