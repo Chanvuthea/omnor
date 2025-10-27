@@ -3,6 +3,7 @@ import BasicScreen from "./screens/basicScreen";
 import GoldScreen from "./screens/goldScreen";
 import axios from "axios";
 import PremiumScreen from "./screens/premiumScreen";
+import CreateLinkScreen from "./screens/createLinkScreen";
 
 //Prod
 const URL = import.meta.env.VITE_API_URL;
@@ -17,7 +18,9 @@ const token = import.meta.env.VITE_TOKEN;
 
 const App: React.FC = () => {
   const splitURL = window.location.href.split("?");
+
   const coupleID = splitURL[splitURL.length - 1];
+  console.log(coupleID);
   const [coupleData, setCoupleData] = useState<any>();
   const [_, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
@@ -49,7 +52,7 @@ const App: React.FC = () => {
         setIsLoading(false);
       }
     };
-    fetchAgendaData();
+    coupleID !== "create" && fetchAgendaData();
   }, []);
 
   const Loading = () => {
@@ -72,7 +75,11 @@ const App: React.FC = () => {
         return Loading();
     }
   };
-  return checkType();
+  return coupleID === "create" ? (
+    <CreateLinkScreen URL={splitURL[0]} />
+  ) : (
+    checkType()
+  );
 };
 
 export default App;
