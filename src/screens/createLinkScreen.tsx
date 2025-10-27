@@ -11,14 +11,28 @@ const CreateLinkScreen: React.FC<CreateLinkScreenProps> = ({ URL }) => {
   const [inputValue, setInputValue] = useState("");
   const [inputCoupleId, setInputCoupleId] = useState("");
   const handleCopy = () => {
-    navigator.clipboard
-      .writeText(`${URL}?${inputCoupleId}&name=${inputValue}`)
-      .then(() => {
-        alert("Copied to clipboard!");
-      })
-      .catch((err) => {
+    const textToCopy = `${URL}?${inputCoupleId}&name=${encodeURIComponent(inputValue)}`;
+
+    if (navigator.clipboard) {
+      // Modern Clipboard API
+      navigator.clipboard
+        .writeText(textToCopy)
+        .then(() => alert("Link copied to clipboard!"))
+        .catch((err) => console.error("Failed to copy: ", err));
+    } else {
+      // Fallback for older browsers
+      const textarea = document.createElement("textarea");
+      textarea.value = textToCopy;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        alert("Link copied to clipboard!");
+      } catch (err) {
         console.error("Failed to copy: ", err);
-      });
+      }
+      document.body.removeChild(textarea);
+    }
   };
   return (
     <div
