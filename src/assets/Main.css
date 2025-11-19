@@ -32,9 +32,8 @@ body {
 .Mono1 {
   text-align: center;
   padding-top: 30%;
-  font-family: "Angkor", serif;
-  color: #ffffff;
-  text-shadow: 0 2px 6px #a88e61;
+  font-family: "Moul", serif;
+  color: #a37333;
 }
 .Mono1 h3 {
   font-size: 30px;
@@ -63,18 +62,16 @@ h3,
   flex-wrap: nowrap;
 }
 .text-filter {
-  color: #a88e61;
-  filter: drop-shadow(2px 0 white) drop-shadow(-2px 0 white)
-    drop-shadow(0 2px white) drop-shadow(0 -2px white);
+  color: #a37333;
 }
 
 .dad-names,
 .dad-names * {
   font-family: "Angkor", serif !important;
-  color: #a88e61 !important;
+  color: #a37333 !important;
   font-size: 13px !important;
   gap: 100px;
-  -webkit-text-stroke: 0.8px #a88e61;
+  /* -webkit-text-stroke: 0.8px #a37333; */
   margin: 0;
   padding: 0;
   margin-top: 10px;
@@ -86,10 +83,10 @@ h3,
 .mom-names,
 .mom-names * {
   font-family: "Angkor", serif !important;
-  color: #a88e61 !important;
+  color: #a37333 !important;
   font-size: 13px !important;
   gap: 110px;
-  -webkit-text-stroke: 0.8px #a88e61;
+  /* -webkit-text-stroke: 0.8px #a37333; */
   margin: 0;
   margin-top: 10px;
   padding: 0;
@@ -100,16 +97,15 @@ h3,
 .invite {
   text-align: center;
   font-family: "Moul", serif;
-  color: #a88e61;
+  color: #a37333;
   font-size: 12px !important;
-  text-shadow: 1px 1px 4px rgb(255, 255, 255);
   text-decoration: underline;
 }
 
 .sub-invite {
   padding-left: 30px;
   padding-right: 30px;
-  color: #a88e61;
+  color: #a37333;
   text-align: center;
   font-size: 12px !important;
   font-family: "Moulpali", sans-serif !important;
@@ -120,7 +116,7 @@ h3,
   gap: 120px;
   font-family: "Moulpali", sans-serif !important;
   font-size: 12px !important;
-  color: #a88e61;
+  color: #a37333;
 }
 
 .groom-bride-names {
@@ -129,10 +125,10 @@ h3,
   align-items: center;
   text-align: center;
   font-family: "Moul", serif;
-  color: #a88e61;
+  color: #a37333;
   font-size: 20px !important;
-  -webkit-text-stroke: 0.3px #ffffff;
-  text-shadow: 1px 1px 4px rgba(98, 98, 98, 0.474);
+  /* -webkit-text-stroke: 0.3px #ffffff; */
+  /* text-shadow: 1px 1px 4px rgba(98, 98, 98, 0.474); */
   gap: 10px;
 }
 
@@ -140,7 +136,7 @@ h3,
 .middle-text {
   font-family: "Moulpali", sans-serif !important;
   font-size: 12px !important;
-  color: #a88e61;
+  color: #a37333;
   margin-bottom: 5px;
 }
 
@@ -157,17 +153,18 @@ h3,
 }
 
 .dateinfo {
-  font-family: "Moulpali", sans-serif !important;
-  color: #a88e61;
+  font-family: "Moul", sans-serif !important;
+  color: #a37333;
   text-align: center;
   margin: 0;
-  padding: 0;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-top: 20px;
 }
 
 .dateinfo1 {
   font-family: "Moul", serif;
-  color: #a88e61;
+  color: #a37333;
   font-size: 20px !important;
   text-align: center;
 }
@@ -185,7 +182,7 @@ h3,
  */
 .calendar-button {
   display: inline-block;
-  background-color: #a88e61;
+  background-color: #a37333;
   color: #fff;
   padding: 12px 24px;
   border-radius: 12px;
@@ -221,8 +218,8 @@ h3,
  */
 .event {
   font-family: "Angkor", serif;
-  color: #a88e61;
-  /* text-shadow: 0 2px 6px #a88e61; */
+  color: #a37333;
+  /* text-shadow: 0 2px 6px #a37333; */
 
   font-size: 24px;
   margin-bottom: 12px;
@@ -232,7 +229,7 @@ h3,
 .sub-event {
   font-family: "Angkor", serif;
   color: #ffffff;
-  /* text-shadow: 0 2px 6px #a88e61; */
+  /* text-shadow: 0 2px 6px #a37333; */
   font-size: 20px;
   margin-bottom: 8px;
   text-align: center;
@@ -240,10 +237,9 @@ h3,
 
 .eventDetailTime {
   text-align: center;
-  font-family: "Moulpali", sans-serif;
+  font-family: "Moul";
   font-size: 15px;
-  color: #a88e61;
-
+  color: #a37333;
   font-weight: bold;
   display: block;
   margin-bottom: 4px;
@@ -253,12 +249,12 @@ h3,
 
 .eventDetail {
   text-align: center;
-  font-family: "Moulpali", sans-serif;
+  font-family: "Moul";
   font-size: 15px;
   padding-left: 25px;
   padding-right: 25px;
-  /* text-shadow: 3px 3px 6px #a88e61; */
-  color: #a88e61;
+  /* text-shadow: 3px 3px 6px #a37333; */
+  color: #a37333;
   font-weight: bold;
   line-height: 1.6;
 }
@@ -278,9 +274,9 @@ h3,
   font-family: "Moulpali", sans-serif;
   font-size: 15px;
   padding: 10px 25px;
-  border: 1px solid #a88e61;
+  border: 1px solid #a37333;
   background: white;
-  color: #a88e61;
+  color: #a37333;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -294,7 +290,7 @@ h3,
 }
 
 .day-btn.active {
-  background: #a88e61;
+  background: #a37333;
   color: white;
 }
 

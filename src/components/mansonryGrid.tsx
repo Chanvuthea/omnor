@@ -57,15 +57,10 @@ function useRandomItems(count: number): Item[] {
   );
 }
 export default function MasonryTwoColumnDemo({ photoBoothUrls }: any) {
-  const items = useRandomItems(photoBoothUrls.length - 1);
+  const items = useRandomItems(photoBoothUrls.length);
 
   return (
-    <Masonry
-      columnCount={1}
-      gap={16}
-      // maxItemHeight={maxItemHeight}
-      className={"md:w-[400px] w-full"}
-    >
+    <Masonry columnCount={1} gap={16} className={"md:w-[400px] w-full"}>
       {items.map((item) => (
         <motion.div
           className="photo-wrapper full"

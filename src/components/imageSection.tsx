@@ -17,7 +17,7 @@ export default function ImageSection({
   showSlide,
 }: ImageSectionProps) {
   return (
-    <div className="w-full pt-6 pb-50">
+    <div className="w-full">
       {showSlide && <SlideshowDemo photoBoothUrls={imageList} />}
       <div className="p-6 justify-center items-center flex">
         <MasonryTwoColumnDemo photoBoothUrls={imageList} />

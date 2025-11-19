@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../../assets/Main.css";
 import ImageSection from "../imageSection";
 import GoldThankyouContent from "../gold/goldThankyouContent";
+import PowerOmnor from "../powerOmnor";
 
 const pageVariants: any = {
   hidden: { opacity: 0, scale: 0.95 },
@@ -44,6 +45,7 @@ const PremiumContent = (data: any) => {
       id: index,
       image: `${IMAGE_URL}${item.url}`,
     })) || [];
+
   const checkDay = timelineDay1.length > 0 ? "day1" : "day2";
   const [selectedDay, setSelectedDay] = useState(checkDay); // default Day 1
   const currentTimeline = selectedDay === "day1" ? timelineDay1 : timelineDay2;
@@ -73,7 +75,7 @@ const PremiumContent = (data: any) => {
         {/* Parents */}
         <div
           className="flex justify-between p-8 px-4"
-          style={{ fontFamily: "Angkor" }}
+          style={{ fontFamily: "Moul" }}
         >
           <motion.div
             variants={scrollFadeIn}
@@ -83,7 +85,9 @@ const PremiumContent = (data: any) => {
             className="text-filter"
           >
             <h6>លោក {coupleData.list_family_name.groom_father}</h6>
-            <h6>លោក {coupleData.list_family_name.bride_father}</h6>
+            <h6 className=" text-right">
+              លោកស្រី {coupleData.list_family_name.groom_mother}
+            </h6>
           </motion.div>
           <motion.div
             variants={scrollFadeIn}
@@ -92,9 +96,7 @@ const PremiumContent = (data: any) => {
             viewport={{ once: false, amount: 0.6 }}
             className=" text-filter"
           >
-            <h6 className=" text-right">
-              លោកស្រី {coupleData.list_family_name.groom_mother}
-            </h6>
+            <h6>លោក {coupleData.list_family_name.bride_father}</h6>
             <h6 className=" text-right">
               លោកស្រី {coupleData.list_family_name.bride_mother}
             </h6>
@@ -108,7 +110,7 @@ const PremiumContent = (data: any) => {
           whileInView="visible"
           viewport={{ once: false, amount: 0.7 }}
         >
-          <h4 className="pt-4 invite  text-filter">សូមគោរពអញ្ជើញ</h4>
+          <h4 className="pt-4 invite text-filter">សូមគោរពអញ្ជើញ</h4>
           <h6 className="sub-invite pt-2  text-filter">
             {coupleData.content_invitation}
           </h6>
@@ -221,11 +223,16 @@ const PremiumContent = (data: any) => {
               variants={i % 2 === 0 ? slideInLeft : slideInRight}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.3 }}
               exit={{ opacity: 0, y: 200 }}
+              className=""
             >
-              <h4 className="eventDetailTime text-filter">{item.time}</h4>
-              <p className="eventDetail mt-3 text-filter">{item.detail}</p>
+              <h4 className="eventDetailTime text-filter font-bold">
+                {item.time}
+              </h4>
+              <p className="eventDetail mt-3 text-filter pb-8 font-bold">
+                {item.detail}
+              </p>
             </motion.div>
           ))}
         </AnimatePresence>
@@ -237,12 +244,12 @@ const PremiumContent = (data: any) => {
             variants={scrollFadeIn}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h5 className="dateinfo1 text-filter">កម្មវិធីពេលល្ងាច </h5>
+            <h5 className="dateinfo1 text-filter pt-4">កម្មវិធីពេលល្ងាច </h5>
             <h4 className="eventDetailTime text-filter">៥ ៖ ០០ ល្ងាច</h4>
-            <p className="eventDetail text-filter">
+            <p className="eventDetail text-filter " style={{ lineHeight: 2 }}>
               {coupleData.content_agenda.restaurant_location.name}
             </p>
           </motion.div>
@@ -273,15 +280,25 @@ const PremiumContent = (data: any) => {
           variants={scrollFadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="bt"
         >
           <div
-            className=" p-6 pb-40 text-[#a88e61] "
+            className=" p-6 pb-40 text-[#a37333] "
             style={{ fontFamily: "'Angkor', 'Arial', sans-serif" }}
           >
             <GoldThankyouContent data={coupleData?.content_thnakyou} />
           </div>
+        </motion.div>
+
+        <motion.div
+          variants={scrollFadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="bt"
+        >
+          <PowerOmnor />
         </motion.div>
       </motion.div>
     </AnimatePresence>

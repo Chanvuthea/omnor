@@ -1,6 +1,5 @@
 import { useSpring, animated } from "@react-spring/web";
 import React, { useState } from "react";
-import ButterflyField from "../components/butterflyAnimation";
 
 import CherryBlossom from "../components/effect/CherryBloossom";
 
@@ -158,7 +157,7 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
               className=" w-2/4 md:w-2/6 h-full object-cover"
               loading="lazy"
             ></img>
-            <p className=" text-center text-base md:text-2xl text-amber-100 absolute top-1/2 -mt-4">
+            <p className=" text-center text-base md:text-2xl text-amber-50 absolute top-1/2 -mt-4">
               បើកធៀប
             </p>
           </animated.div>
@@ -168,13 +167,13 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
             }
             style={{ ...logo, fontFamily: "'Moulpali', 'Arial', sans-serif" }}
           >
-            <p className=" text-center text-3xl md:text-5xl text-amber-100 ">
+            <p className=" text-center text-3xl md:text-5xl text-amber-50 ">
               សិរីមង្គលអាពាហ៏ពិពាហ៏
             </p>
-            <p className=" text-center text-base md:text-2xl text-amber-100 p-5">
+            <p className=" text-center text-base md:text-2xl text-amber-50 p-5">
               សូមគោរពអញ្ជើញ
             </p>
-            <p className=" text-center text-xl  md:text-4xl text-amber-100">
+            <p className=" text-center text-xl  md:text-4xl text-amber-50">
               {finalName}
             </p>
           </animated.div>
@@ -196,7 +195,6 @@ const PremiumScreen: React.FC<PremiumScreenProps> = ({
               />
             </div>
             <div className=" absolute z-0">
-              <ButterflyField count={30} baseWidth={30} />
               <CherryBlossom />
             </div>
 
