@@ -4,6 +4,7 @@ import GoldScreen from "./screens/goldScreen";
 import axios from "axios";
 import PremiumScreen from "./screens/premiumScreen";
 import CreateLinkScreen from "./screens/createLinkScreen";
+import KbachKhmerScreen from "./screens/kbachKhmerScreen";
 
 //Prod
 const URL = import.meta.env.VITE_API_URL;
@@ -18,9 +19,7 @@ const token = import.meta.env.VITE_TOKEN;
 
 const App: React.FC = () => {
   const splitURL = window.location.href.split("?");
-
   const coupleID = splitURL[splitURL.length - 1];
-  console.log(coupleID);
   const [coupleData, setCoupleData] = useState<any>();
   const [_, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
@@ -45,6 +44,7 @@ const App: React.FC = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+
         setCoupleData(response?.data?.data[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -54,15 +54,6 @@ const App: React.FC = () => {
     };
     coupleID !== "create" && fetchAgendaData();
   }, []);
-
-  const Loading = () => {
-    return (
-      <div>
-        <p>Loding....</p>
-      </div>
-    );
-  };
-
   const checkType = () => {
     switch (coupleData?.list_family_name?.type) {
       case "basic":
@@ -71,8 +62,17 @@ const App: React.FC = () => {
         return <GoldScreen coupleData={coupleData} IMAGE_URL={IMAGE_URL} />;
       case "premium":
         return <PremiumScreen coupleData={coupleData} IMAGE_URL={IMAGE_URL} />;
+      case "kbach_khmer":
+        return (
+          <KbachKhmerScreen coupleData={coupleData} IMAGE_URL={IMAGE_URL} />
+        );
+
       default:
-        return Loading();
+        return (
+          <div>
+            <p>Loding....</p>
+          </div>
+        );
     }
   };
   return coupleID === "create" ? (
