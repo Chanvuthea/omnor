@@ -7,6 +7,7 @@ config();
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    publicDir: "public",
     define: {
       "process.env": process.env,
     },
