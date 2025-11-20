@@ -7,7 +7,7 @@ import type { Options } from "vite-plugin-open-graph";
 
 const ogOptions: Options = {
   basic: {
-    url: "https://omnor.vercel.app/?ivnaim_so_eng20251228",
+    url: "https://omnor.vercel.app",
     title: "សិរីមង្គលអាពាហ៍ពិពាហ៍",
     determiner: "auto",
     description:
