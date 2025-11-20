@@ -5,7 +5,6 @@ import axios from "axios";
 import PremiumScreen from "./screens/premiumScreen";
 import CreateLinkScreen from "./screens/createLinkScreen";
 import KbachKhmerScreen from "./screens/kbachKhmerScreen";
-import { Helmet } from "react-helmet";
 
 //Prod
 const URL = import.meta.env.VITE_API_URL;
@@ -79,26 +78,7 @@ const App: React.FC = () => {
   return coupleID === "create" ? (
     <CreateLinkScreen URL={splitURL[0]} />
   ) : (
-    <>
-      <Helmet>
-        <title>My Title</title>
-        <meta name="description" content="Helmet application" />
-        <meta property="og:title" content={"My Title"} />
-        <meta property="og:description" content={"Helmet application"} />
-        <meta
-          property="og:url"
-          content={"https://omnor.vercel.app/?ivnaim_so_eng20251228"}
-        />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={"My Title"} />
-        <meta name="twitter:description" content={"Helmet application"} />
-        {/* <meta name="twitter:image" content={pageImage} /> */}
-      </Helmet>
-      {checkType()}
-    </>
+    checkType()
   );
 };
 
